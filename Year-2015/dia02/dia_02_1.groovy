@@ -1,17 +1,12 @@
 def f = new File("input")
+def total_paper = 0
 def wrappingPaper(l, w, h){
-	side_one = w*h//l
-	side_two = l*h//w
-	side_three = l*w//h
-	def smallest = [side_one, side_two, side_three] 
-	println smallest.min()
-
-	2*side_one+2*side_two+2*side_three
+	def sides = [w*h, l*h, l*w] 
+	2 * sides.sum() + sides.min()
 }
-
-println wrappingPaper(2,3,4)
-
-/*f.eachLine() {
-	line -> 
-	println "$line"
-}*/
+f.eachLine() {
+	line ->
+	def sides = line.split('x')
+	total_paper += wrappingPaper(sides[0].toInteger(),sides[1].toInteger(),sides[2].toInteger())
+}
+println total_paper
