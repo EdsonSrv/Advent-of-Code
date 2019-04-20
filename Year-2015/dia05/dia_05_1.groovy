@@ -15,11 +15,12 @@ def example4 = "haegwjzuvuyypxyu" // is naughty
 def example5 = "dvszwmarrgswjxmb" // is naughty
 
 def isNice(String string){
-	cointainTrheeVowels(string) &&
-	twoEqualsLetter(string)
+	isCointainTrheeVowels(string) &&
+	twoEqualsLetter(string) &&
+	!isContainRestrictedLetters(string)
 }
 
-def cointainTrheeVowels(String st){
+def isCointainTrheeVowels(String st){
 	def total_vowels = 0
 	vowels = "aeiou"
 	for (char v: vowels){
@@ -39,7 +40,13 @@ def twoEqualsLetter(String st){
 	flag
 }
 
-println twoEqualsLetter(example5)
+def isContainRestrictedLetters(String st){
+	if (st.contains("ab")) true
+	else if (st.contains("cd")) true
+	else if (st.contains("pq")) true
+	else if (st.contains("xy")) true
+	else false
+}
 
 def f = new File("input")
 def total = 0
@@ -48,4 +55,4 @@ f.eachLine() {
 	if(isNice(line)) total++
 }
 
-//println total
+println total
