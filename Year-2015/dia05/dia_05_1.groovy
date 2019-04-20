@@ -15,7 +15,8 @@ def example4 = "haegwjzuvuyypxyu" // is naughty
 def example5 = "dvszwmarrgswjxmb" // is naughty
 
 def isNice(String string){
-	cointainTrheeVowels(string)
+	cointainTrheeVowels(string) &&
+	twoEqualsLetter(string)
 }
 
 def cointainTrheeVowels(String st){
@@ -30,10 +31,15 @@ def cointainTrheeVowels(String st){
 }
 
 def twoEqualsLetter(String st){
-
+	def flag = false
+	for(int i = 0; i < st.length(); i++)
+		if (i < st.length()-1)
+			if(st.charAt(i).equals(st.charAt(i+1)))
+				flag = true
+	flag
 }
 
-println twoEqualsLetter(example1)
+println twoEqualsLetter(example5)
 
 def f = new File("input")
 def total = 0
