@@ -22,7 +22,7 @@ def anwer(String secretKey) {
 		}
 		i++
 	}
-	i - 1
+	i 
 }
 
 println anwer("iwrupvqb")
