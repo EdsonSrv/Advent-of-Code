@@ -1,22 +1,28 @@
 import java.security.MessageDigest
 
-def digest = MessageDigest.getInstance("MD5")
- 
-//Quick MD5 of text
-def secretKey = 'iwrupvqb'
-def i = 0
-
-while (true){
-	def temporal = secretKey + i
-	println "temporal: $temporal"
-	def answre = new BigInteger(1,digest.digest(temporal.getBytes())).toString(16)//.padLeft(32,"0")
-	println "answre: $answre"
-	answre = "00000"+answre
-	if(answre.startsWith("00000")){
-		println i+answre
-		break
+def md5Hash(String input){
+	def md = MessageDigest.getInstance("MD5")
+	md.update(input.getBytes())
+	byte[] digest = md.digest()
+	def sb = new StringBuffer()
+	for (byte b : digest) {
+		sb.append(String.format("%02x", b & 0xff))
 	}
-	i += 1
+	sb.toString()
 }
 
-//println md5hash1
+def anwer(String secretKey) {
+	def i = 0
+	while (true) {
+		def input = secretKey + i
+		if (md5Hash(input)
+					.substring(0, 5)
+					.equals("00000")){
+			break
+		}
+		i++
+	}
+	i - 1
+}
+
+println anwer("iwrupvqb")
