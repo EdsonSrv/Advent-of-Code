@@ -1,16 +1,22 @@
 import java.security.MessageDigest
- 
+
 def digest = MessageDigest.getInstance("MD5")
  
 //Quick MD5 of text
-def text = "MD5 this text!"
-def md5hash1 = new BigInteger(1,digest.digest(text.getBytes())).toString(16).padLeft(32,"0")
- 
-//MD5 of text with updates
-digest.update("MD5 ".getBytes())
-digest.update("this ".getBytes())
-digest.update("text!".getBytes())
-def md5hash2 = new BigInteger(1,digest.digest()).toString(16).padLeft(32,"0")
- 
-//Output
-println "${md5hash1} should be the same as ${md5hash2}"
+def secretKey = 'iwrupvqb'
+def i = 0
+
+while (true){
+	def temporal = secretKey + i
+	println "temporal: $temporal"
+	def answre = new BigInteger(1,digest.digest(temporal.getBytes())).toString(16)//.padLeft(32,"0")
+	println "answre: $answre"
+	answre = "00000"+answre
+	if(answre.startsWith("00000")){
+		println i+answre
+		break
+	}
+	i += 1
+}
+
+//println md5hash1
