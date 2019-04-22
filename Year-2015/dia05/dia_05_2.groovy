@@ -19,19 +19,22 @@ def isNice(String string){
 def propertie1(String st){
 	def flag = false
 	for (int i = 0; i < st.length()-1; i++)
-		for (int j = 1; j < st.length(); j++)
-			if (( st.split("qj", -1).length ) - 1 >= 2)
+		for (int j = 1; j < st.length(); j++){
+			def sub = ""+st.charAt(i)
+			sub = sub + st.charAt(j)
+			if (( st.split(sub, -1).length ) - 1 >= 2){
 				flag = true
+				flag
+			}
+		}
 	flag
 }
 
 def propertie2(String st){
 
 }
-//st.charAt(i)+st.charAt(j)
-def count = ( example1.split("Java", -1).length ) - 1
-println count
-//println propertie1(example1)
+
+println propertie1(example4)
 
 def f = new File("input")
 def total = 0
