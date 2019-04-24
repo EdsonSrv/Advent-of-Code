@@ -7,11 +7,6 @@
  *
  */
 
-def example1 = "qjhvhtzxzqqjkmpb" //nice
-def example2 = "xxyxx" //nice
-def example3 = "uurcxstgmygtbstg" //naughty
-def example4 = "ieodomkazucvgmuy" //naughty
-
 def isNice(String string){
 	propertie1(string) && propertie2(string)
 }
@@ -31,14 +26,14 @@ def propertie1(String st){
 }
 
 def propertie2(String st){
+	for (i in (0..st.length()-3)){
+		def letter = st.charAt(i)
+		def pattern = ~/.*${letter}.${letter}.*/
+		if(st ==~ pattern)
+			return true
+	}
 	false
 }
-
-def t0 = "invasor" ==~ /invasor(es)?/
-def t1 = "El invasor Zim es del Imperio Irken" =~ /invasor/
-def i = 'x'
-def pattern1 = ~/.*${i}.${i}.*/
-println "xxyxx" ==~ pattern1
 
 def f = new File("input")
 def total = 0
@@ -47,4 +42,4 @@ f.eachLine() {
 	if(isNice(line)) total++
 }
 
-//println total
+println total
