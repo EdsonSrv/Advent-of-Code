@@ -13,7 +13,7 @@ def example3 = "uurcxstgmygtbstg" //naughty
 def example4 = "ieodomkazucvgmuy" //naughty
 
 def isNice(String string){
-	//propertie1(string) && propertie2(string)
+	propertie1(string) && propertie2(string)
 }
 
 def propertie1(String st){
@@ -31,10 +31,14 @@ def propertie1(String st){
 }
 
 def propertie2(String st){
-
+	false
 }
 
-println propertie1(example4)
+def t0 = "invasor" ==~ /invasor(es)?/
+def t1 = "El invasor Zim es del Imperio Irken" =~ /invasor/
+def i = 'x'
+def pattern1 = ~/.*${i}.${i}.*/
+println "xxyxx" ==~ pattern1
 
 def f = new File("input")
 def total = 0
@@ -42,3 +46,5 @@ f.eachLine() {
 	line -> 
 	if(isNice(line)) total++
 }
+
+//println total
