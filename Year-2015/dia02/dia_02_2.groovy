@@ -3,8 +3,7 @@ def total_ribbon = 0
 
 def ribbon(l, w, h){
 	def bow = l*w*h
-	def sides = [l, w, h]
-	sides.sort()
+	def sides = [l, w, h].sort()
 	2*sides[0]+2*sides[1]+bow
 }
 f.eachLine() {
