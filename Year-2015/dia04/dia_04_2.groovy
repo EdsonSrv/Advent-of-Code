@@ -2,10 +2,10 @@ import java.security.MessageDigest
 
 def md5Hash(String input){
 	def md = MessageDigest.getInstance("MD5")
-	md.update(input.getBytes())
+	md.update(input.bytes)
 	byte[] digest = md.digest()
 	def sb = new StringBuffer()
-	for (byte b : digest) {
+	for (b in digest) {
 		sb.append(String.format("%02x", b & 0xff))
 	}
 	sb.toString()

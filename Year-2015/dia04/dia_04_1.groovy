@@ -2,7 +2,7 @@ import java.security.MessageDigest
 
 def md5Hash(String input){
 	def md = MessageDigest.getInstance("MD5")
-	md.update(input.getBytes())
+	md.update(input.bytes)
 	byte[] digest = md.digest()
 	def sb = new StringBuffer()
 	for (b in digest) {
