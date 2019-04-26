@@ -5,7 +5,7 @@ def md5Hash(String input){
 	md.update(input.getBytes())
 	byte[] digest = md.digest()
 	def sb = new StringBuffer()
-	for (byte b : digest) {
+	for (b in digest) {
 		sb.append(String.format("%02x", b & 0xff))
 	}
 	sb.toString()
