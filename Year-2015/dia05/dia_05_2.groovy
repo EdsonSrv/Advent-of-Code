@@ -13,15 +13,12 @@ def isNice(String string){
 
 def isContainPairLetter(String st){
 	def flag = false
-	for (int i = 0; i < st.length()-1; i++)
-		for (int j = 1; j < st.length(); j++){
-			def sub = ""+st.charAt(i)
-			sub = sub + st.charAt(j)
-			if (( st.split(sub, -1).length ) - 1 >= 2){
-				flag = true
-				flag
-			}
-		}
+	(0..st.length() - 2).each{ it ->
+		def sub = ""+st.charAt(it)
+		sub = sub + st.charAt(it + 1)
+		if (( st.split(sub, -1).length ) - 1 >= 2)
+	 		flag = true
+	}
 	flag
 }
 
