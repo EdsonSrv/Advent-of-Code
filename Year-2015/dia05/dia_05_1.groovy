@@ -34,8 +34,7 @@ def isCointainTrheeVowels(String st){
 def twoEqualsLetter(String st){
 	def flag = false
 	(0..st.length()-1).each{
-		if (it < st.length()-1)
-			if(st.charAt(it).equals(st.charAt(it+1)))
+			if(it < st.length()-1 && st.charAt(it).equals(st.charAt(it+1)))
 				flag = true
 	}
 	flag
