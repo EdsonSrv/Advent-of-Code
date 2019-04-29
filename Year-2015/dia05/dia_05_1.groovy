@@ -17,9 +17,9 @@ def isNice(String string){
 def isCointainTrheeVowels(String st){
 	def total_vowels = 0
 	vowels = "aeiou"
-	vowels.each{ it -> 
+	vowels.each{ v -> 
 		(0..st.length()-1).each{ i ->
-			if (st.charAt(i) == it) total_vowels++
+			if (st.charAt(i) == v) total_vowels++
 		}
 	}
 	total_vowels >= 3
@@ -35,11 +35,23 @@ def twoEqualsLetter(String st){
 }
 
 def isContainRestrictedLetters(String st){
-	if (st.contains("ab")) true
-	else if (st.contains("cd")) true
-	else if (st.contains("pq")) true
-	else if (st.contains("xy")) true
-	else false
+	switch(true) {
+		case st.contains("ab"):
+			true			
+		break
+		case st.contains("cd"):
+			true			
+		break
+		case st.contains("pq"):
+			true			
+		break
+		case st.contains("xy"):
+			true			
+		break
+		default:
+			false
+		break
+	}
 }
 
 def f = new File("input")
