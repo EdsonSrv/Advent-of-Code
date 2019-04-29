@@ -23,9 +23,10 @@ def isNice(String string){
 def isCointainTrheeVowels(String st){
 	def total_vowels = 0
 	vowels = "aeiou"
-	vowels.each{
-		for (i in (0..st.length()-1))
+	vowels.each{ it -> 
+		(0..st.length()-1).each{ i ->
 			if (st.charAt(i) == it) total_vowels++
+		}
 	}
 	total_vowels >= 3
 }
