@@ -8,12 +8,6 @@
  *
  */
 
-def example1 = "ugknbfddgicrmopn" //is nice
-def example2 = "aaa" //is nice
-def example3 = "jchzalrnumimnmhp" //is naughty
-def example4 = "haegwjzuvuyypxyu" // is naughty
-def example5 = "dvszwmarrgswjxmb" // is naughty
-
 def isNice(String string){
 	isCointainTrheeVowels(string) &&
 	twoEqualsLetter(string) &&

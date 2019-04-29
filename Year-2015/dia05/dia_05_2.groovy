@@ -8,10 +8,10 @@
  */
 
 def isNice(String string){
-	propertie1(string) && propertie2(string)
+	isContainPairLetter(string) && isContainBetwenTwo(string)
 }
 
-def propertie1(String st){
+def isContainPairLetter(String st){
 	def flag = false
 	for (int i = 0; i < st.length()-1; i++)
 		for (int j = 1; j < st.length(); j++){
@@ -25,7 +25,7 @@ def propertie1(String st){
 	flag
 }
 
-def propertie2(String st){
+def isContainBetwenTwo(String st){
 	for (i in (0..st.length()-3)){
 		def letter = st.charAt(i)
 		def pattern = ~/.*${letter}.${letter}.*/
