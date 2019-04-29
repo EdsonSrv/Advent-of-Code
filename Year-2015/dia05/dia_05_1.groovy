@@ -23,20 +23,20 @@ def isNice(String string){
 def isCointainTrheeVowels(String st){
 	def total_vowels = 0
 	vowels = "aeiou"
-	for (char v: vowels){
-		for (int i = 0; i < st.length(); i++){
-			if (st.charAt(i) == v) total_vowels++
-		}
+	vowels.each{
+		for (i in (0..st.length()-1))
+			if (st.charAt(i) == it) total_vowels++
 	}
 	total_vowels >= 3
 }
 
 def twoEqualsLetter(String st){
 	def flag = false
-	for(int i = 0; i < st.length(); i++)
-		if (i < st.length()-1)
-			if(st.charAt(i).equals(st.charAt(i+1)))
+	(0..st.length()-1).each{
+		if (it < st.length()-1)
+			if(st.charAt(it).equals(st.charAt(it+1)))
 				flag = true
+	}
 	flag
 }
 
