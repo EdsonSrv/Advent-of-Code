@@ -1,6 +1,6 @@
 /*
  *
- * Dia 5 
+ * Dia 5
  * String's nice:
  * 1.- Contiene al menos 3 vocales
  * 2.- Contiene al menos una letra seguida dos veces
@@ -16,8 +16,7 @@ def isNice(String string){
 
 def isCointainTrheeVowels(String st){
 	def total_vowels = 0
-	vowels = "aeiou"
-	vowels.each{ v -> 
+	"aeiou".each{ v ->
 		(0..st.length()-1).each{ i ->
 			if (st.charAt(i) == v) total_vowels++
 		}
@@ -37,16 +36,16 @@ def twoEqualsLetter(String st){
 def isContainRestrictedLetters(String st){
 	switch(true) {
 		case st.contains("ab"):
-			true			
+			true
 		break
 		case st.contains("cd"):
-			true			
+			true
 		break
 		case st.contains("pq"):
-			true			
+			true
 		break
 		case st.contains("xy"):
-			true			
+			true
 		break
 		default:
 			false
@@ -57,7 +56,7 @@ def isContainRestrictedLetters(String st){
 def f = new File("input")
 def total = 0
 f.eachLine() {
-	line -> 
+	line ->
 	if(isNice(line)) total++
 }
 
